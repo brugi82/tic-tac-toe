@@ -17,6 +17,8 @@ steps:
 
 - script: |
     npm install
+    CI=true npm test -- --coverage
+    ./node_modules/.bin/codecov --token=$(codecov_token)
     npm run build
   displayName: 'npm install and build'
 

@@ -5,6 +5,7 @@ import GamePage from './components/game/GamePage';
 import HistoryPage from './components/history/HistoryPage';
 import HeaderComponent from './components/header/HeaderComponent';
 import './App.css';
+import NotFoundPage from './components/common/NotFoundPage';
 
 const { Footer, Content } = Layout;
 
@@ -16,7 +17,8 @@ const App: React.FC = () => {
         <Content>
           <Switch>
             <Route exact path="/" component={GamePage}/>
-            <Route path="/history" component={HistoryPage}/>
+            <Route exact path="/history" component={HistoryPage}/>
+            <Route component={NotFoundPage}/>
           </Switch>
         </Content>
         <Footer className="footer">Tic Tac Toe @2019 Created by Milos Petrovic</Footer>
