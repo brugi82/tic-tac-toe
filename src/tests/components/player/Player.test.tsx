@@ -4,7 +4,7 @@ import { MemoryRouter } from 'react-router';
 import { shallow, mount, ReactWrapper, ShallowWrapper } from 'enzyme';
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import Player from '../../components/player/Player';
+import Player from '../../../components/player/Player';
 import { Avatar } from 'antd';
 
 configure({ adapter: new Adapter() });
