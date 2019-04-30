@@ -1,5 +1,6 @@
 import React from 'react';
 import { Row, Col } from 'antd';
+import GameField from './GameField';
 
 const GameGrid: React.FC = () => {
     const size = [...Array(3)];
@@ -20,8 +21,8 @@ const GameGrid: React.FC = () => {
         const cellKey = `r${rowIndex}c${columnIndex}`;
         return (
             <Col xs={8} key={cellKey}>
-                <div className="game-field" key={cellKey}>
-                    test
+                <div >
+                    <GameField key={cellKey}/>
                 </div>
             </Col>
 

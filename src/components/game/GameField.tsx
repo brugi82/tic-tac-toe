@@ -1,9 +1,12 @@
 import React from 'react';
+import { Button } from 'antd';
 
 const GameField: React.FC = () => {
     return (
-        <div>
-            Field
+        <div className="field-button-container">
+            <div>
+                <Button className="field-button">X</Button>
+            </div>
         </div>
     )
 }
