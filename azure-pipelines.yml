@@ -17,12 +17,10 @@ steps:
 
 - script: |
     npm install
-    npm test -- --coverage
-    ./node_modules/.bin/codecov --token=$env:MY_MAPPED_ENV_VAR
+    CI=true npm test -- --coverage
+    ./node_modules/.bin/codecov --token=$(codecov_token)
     npm run build
   displayName: 'npm install and build'
-  env:
-    MAPPED_CODECOV_TOKEN: $(codecov_token)
 
 - task: ArchiveFiles@2
   inputs:
