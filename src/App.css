@@ -16,18 +16,22 @@
   float: left;
 }
 
+.game-grid-container {
+  margin: 16px;
+}
+
 .player-container {
   display:flex;
   justify-content:center;
   align-items:center;
   height: 400px;
+  margin: 16px;
 }
 
 .player-active {
   border: 1px;
   border-color: #bae7ff;
   border-style: solid;
-  border-radius: 10px;
   background: #e6f7ff;
 }
 
@@ -35,7 +39,6 @@
   border: 1px;
   border-color: #d9f7be;
   border-style: solid;
-  border-radius: 10px;
   background: #f6ffed;
 }
 
@@ -46,6 +49,22 @@
 .nav-menu {
   float: left;
   line-height: 64px;
+}
+
+.game-field {
+  background-color: #d9f7be;
+  width: 100%;
+  padding-top: 100%;
+}
+
+@media only screen and (max-width: 576px) {
+  .layout {
+    height: auto;
+  }
+
+  .player-container {
+    height: 140px;
+  }
 }
 
 @media only screen and (max-width: 768px) {
