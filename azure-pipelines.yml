@@ -18,6 +18,7 @@ steps:
 - script: |
     npm install
     npm test -- --coverage
+    ./node_modules/.bin/codecov --token=$env:MY_MAPPED_ENV_VAR
     npm run build
   displayName: 'npm install and build'
   env:
