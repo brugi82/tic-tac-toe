@@ -6,11 +6,11 @@ const GamePage: React.FunctionComponent<{}> = () => {
     return (
         <div>
             <Row>
-                <Player name="Milos"/>
+                <Player name="Milos" isActive={true} isWinner={false}/>
                 <Col xs={12}>
                     TEST
                 </Col>
-                <Player name="Joksa"/>
+                <Player name="Joksa" isActive={false} isWinner={true}/>
             </Row>
         </div>
     );

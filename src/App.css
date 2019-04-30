@@ -20,7 +20,23 @@
   display:flex;
   justify-content:center;
   align-items:center;
-  margin-top: 64px;
+  height: 400px;
+}
+
+.player-active {
+  border: 1px;
+  border-color: #bae7ff;
+  border-style: solid;
+  border-radius: 10px;
+  background: #e6f7ff;
+}
+
+.player-winner {
+  border: 1px;
+  border-color: #d9f7be;
+  border-style: solid;
+  border-radius: 10px;
+  background: #f6ffed;
 }
 
 .player-container > div {

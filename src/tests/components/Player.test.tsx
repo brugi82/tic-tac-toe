@@ -12,13 +12,13 @@ configure({ adapter: new Adapter() });
 describe('Player', () => {
     it('Renders without crashing', () => {
         const div = document.createElement('div');
-        ReactDOM.render(<Player name="test" />, div);
+        ReactDOM.render(<Player name="test" isActive={false} isWinner={false}/>, div);
         ReactDOM.unmountComponentAtNode(div);
       });
 
     it('Renders first capital letter in Avatar when name is given.', () => {
       const component: ShallowWrapper = shallow( 
-        <Player name="Test"/>
+        <Player name="Test" isActive={false} isWinner={false}/>
       );
 
       const avatar = component.find(Avatar);
@@ -27,7 +27,7 @@ describe('Player', () => {
 
     it('Renders Unknown in Avatar when name is not given.', () => {
       const component: ShallowWrapper = shallow( 
-        <Player name=""/>
+        <Player name="" isActive={false} isWinner={false}/>
       );
 
       const avatar = component.find(Avatar);
@@ -36,9 +36,25 @@ describe('Player', () => {
 
     it('Renders name in h1 when given.', () => {
       const component: ShallowWrapper = shallow( 
-        <Player name="Test"/>
+        <Player name="Test" isActive={false} isWinner={false}/>
       );
 
       expect(component.find('h1').text()).toEqual('Test');
+    });
+
+    it('Renders with player-active class name when player is active.', () => {
+      const component: ShallowWrapper = shallow( 
+        <Player name="Test" isActive={true} isWinner={false}/>
+      );
+
+      expect(component.find('.player-active')).toHaveLength(1);
+    });
+
+    it('Renders with player-winner class name when player is winner.', () => {
+      const component: ShallowWrapper = shallow( 
+        <Player name="Test" isActive={false} isWinner={true}/>
+      );
+
+      expect(component.find('.player-winner')).toHaveLength(1);
     });
 });
