@@ -16,6 +16,17 @@
   float: left;
 }
 
+.player-container {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin-top: 64px;
+}
+
+.player-container > div {
+  text-align: center;
+}
+
 .nav-menu {
   float: left;
   line-height: 64px;

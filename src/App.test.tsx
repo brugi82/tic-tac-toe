@@ -4,7 +4,6 @@ import { MemoryRouter } from 'react-router';
 import { shallow, mount, ReactWrapper } from 'enzyme';
 import GamePage from './components/game/GamePage';
 import App from './App';
-// setup file
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import HistoryPage from './components/history/HistoryPage';
