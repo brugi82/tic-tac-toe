@@ -67,6 +67,10 @@
   height: 100%;
 }
 
+.field-button > span {
+  font-size: 48px;
+}
+
 @media only screen and (max-width: 576px) {
   .layout {
     height: auto;

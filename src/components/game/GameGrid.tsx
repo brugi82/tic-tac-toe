@@ -1,8 +1,14 @@
 import React from 'react';
 import { Row, Col } from 'antd';
 import GameField from './GameField';
+import { connect } from 'react-redux';
 
-const GameGrid: React.FC = () => {
+type GameGridProps = {
+    board: []
+}
+
+const GameGrid: React.FunctionComponent<GameGridProps> = props => {
+    const { board } = props;
     const size = [...Array(3)];
 
     const renderRow = (index: number) => {
@@ -22,10 +28,9 @@ const GameGrid: React.FC = () => {
         return (
             <Col xs={8} key={cellKey}>
                 <div >
-                    <GameField key={cellKey}/>
+                    <GameField key={cellKey} value={board[rowIndex][columnIndex]}/>
                 </div>
             </Col>
-
         );
     }
 
@@ -40,4 +45,11 @@ const GameGrid: React.FC = () => {
     )
 }
 
-export default GameGrid;
+const mapStateToProps = (state:any) => {
+    console.log(state);
+    return {
+        board: state.game.board
+    };
+};
+
+export default connect(mapStateToProps)(GameGrid);
