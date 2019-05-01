@@ -13,7 +13,7 @@ configure({ adapter: new Adapter() });
 
 describe('App', () => {
   it('Routes to Game component on default route.', () => {
-    const component: ReactWrapper = mount( 
+    const component = shallow( 
       <MemoryRouter initialEntries = {['/']} >
         <App/>
       </MemoryRouter>
@@ -22,7 +22,7 @@ describe('App', () => {
   });
 
   it('Routes to History component on history route.', () => {
-    const component: ReactWrapper = mount( 
+    const component = shallow( 
       <MemoryRouter initialEntries = {['/history']} >
         <App/>
       </MemoryRouter>
@@ -31,7 +31,7 @@ describe('App', () => {
   });
 
   it('Routes to NotFoundPage component when route not found.', () => {
-    const component: ReactWrapper = mount( 
+    const component = shallow( 
       <MemoryRouter initialEntries = {['/sdfsdf']} >
         <App/>
       </MemoryRouter>

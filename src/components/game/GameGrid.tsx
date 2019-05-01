@@ -2,12 +2,14 @@ import React from 'react';
 import { Row, Col } from 'antd';
 import GameField from './GameField';
 import { connect } from 'react-redux';
+import GameState from '../../reducers/GameState';
+import { AppState } from '../../reducers/RootReducer';
 
 type GameGridProps = {
-    board: []
+    board: any[]
 }
 
-const GameGrid: React.FunctionComponent<GameGridProps> = props => {
+export const GameGrid: React.FunctionComponent<GameGridProps> = props => {
     const { board } = props;
     const size = [...Array(3)];
 
@@ -45,7 +47,7 @@ const GameGrid: React.FunctionComponent<GameGridProps> = props => {
     )
 }
 
-const mapStateToProps = (state:any) => {
+const mapStateToProps = (state: AppState) => {
     console.log(state);
     return {
         board: state.game.board
