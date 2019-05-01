@@ -1,5 +1,5 @@
 import React from 'react';
-import { Avatar, Col } from 'antd';
+import { Avatar } from 'antd';
 
 type PlayerProps = {
     name: string, 
