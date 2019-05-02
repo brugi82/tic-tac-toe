@@ -4,6 +4,7 @@ import GameField from './GameField';
 import { connect } from 'react-redux';
 import { AppState } from '../../reducers/RootReducer';
 import { movePlayed } from '../actions/GameActions';
+import { GameScore } from './../../util/calculateWinner';
 
 type GameGridProps = {
     board: any[],
@@ -38,7 +39,7 @@ export const GameGrid: React.FunctionComponent<GameGridProps> = props => {
     }
 
     const fieldSelected = (rowIndex: number, columnIndex: number) => {
-        movePlayed(rowIndex, columnIndex, 'X');
+        movePlayed(rowIndex, columnIndex);
     }
 
     return (

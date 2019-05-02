@@ -4,7 +4,6 @@ interface MovePlayedAction {
     type: typeof MOVE_PLAYED
     rowIndex: number
     columnIndex: number
-    player: string
 }
 
 export type GameActionTypes = MovePlayedAction;

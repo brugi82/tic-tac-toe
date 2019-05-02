@@ -30,9 +30,18 @@
 
 .player-active {
   border: 1px;
-  border-color: #bae7ff;
+  border-color: #91d5ff;
   border-style: solid;
-  background: #e6f7ff;
+  background: #bae7ff;
+  border-radius: 4px;
+}
+
+.player-inactive {
+  border: 1px;
+  border-color: #d9d9d9;
+  border-style: solid;
+  background: #e8e8e8;
+  border-radius: 4px;
 }
 
 .player-winner {
@@ -40,6 +49,15 @@
   border-color: #d9f7be;
   border-style: solid;
   background: #f6ffed;
+  border-radius: 4px;
+}
+
+.player-tie {
+  border: 1px;
+  border-color: #ffd666;
+  border-style: solid;
+  background: #ffe58f;
+  border-radius: 4px;
 }
 
 .player-container > div {
