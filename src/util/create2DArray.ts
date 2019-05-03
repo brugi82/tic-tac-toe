@@ -6,3 +6,8 @@ export function create2DArray(length: number) {
 
     return rows;
 }
+
+export function clone2DArray(array: any[]) {
+    const clone = array.map(row => row.slice());
+    return clone;
+}

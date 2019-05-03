@@ -1,5 +1,11 @@
 import { GameResult } from './../util/calculateGameResult';
 
+export interface PlayerMove {
+    moveIndex: number,
+    player: string,
+    board: any[]
+}
+
 export default interface GameState {
     id: string,
     x: string,
@@ -7,5 +13,7 @@ export default interface GameState {
     moveCount: number,
     currentTurn: string,
     board: any[],
-    gameResult: GameResult
+    gameResult: GameResult,
+    moveHistory: PlayerMove[]
 }
+
