@@ -1,10 +1,15 @@
 import { combineReducers } from 'redux';
 import { connectRouter } from 'connected-react-router';
-import game from './GameReducer';
+import gameReducer from './GameReducer';
+import GameState from './GameState';
 
 const rootReducer = (history: any) => combineReducers({
     router: connectRouter(history),
-    game
+    game: gameReducer
 });
+
+export type AppState = {
+    game: GameState
+}
 
 export default rootReducer;

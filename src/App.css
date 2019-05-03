@@ -30,16 +30,34 @@
 
 .player-active {
   border: 1px;
-  border-color: #bae7ff;
+  border-color: #d9d9d9;
   border-style: solid;
-  background: #e6f7ff;
+  background: #bae7ff;
+  border-radius: 4px;
+}
+
+.player-inactive {
+  border: 1px;
+  border-color: #d9d9d9;
+  border-style: solid;
+  background: #e8e8e8;
+  border-radius: 4px;
 }
 
 .player-winner {
   border: 1px;
-  border-color: #d9f7be;
+  border-color: #d9d9d9;
   border-style: solid;
-  background: #f6ffed;
+  background: #ffe58f;
+  border-radius: 4px;
+}
+
+.player-tie {
+  border: 1px;
+  border-color: #d9d9d9;
+  border-style: solid;
+  background: #ffe58f;
+  border-radius: 4px;
 }
 
 .player-container > div {
@@ -51,10 +69,28 @@
   line-height: 64px;
 }
 
-.game-field {
-  background-color: #d9f7be;
+.field-button-container {
   width: 100%;
-  padding-top: 100%;
+	padding-bottom: 100%; 
+	position: relative;
+}
+
+.field-button-container > div {
+	position: absolute;
+	top: 0; bottom: 0; left: 0; right: 0;
+}
+
+.field-button {
+  width: 100%;
+  height: 100%;
+}
+
+.ant-btn[disabled].field-winning-button {
+  background-color: #ffe58f;
+}
+
+.field-button > span {
+  font-size: 48px;
 }
 
 @media only screen and (max-width: 576px) {

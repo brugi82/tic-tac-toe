@@ -1,7 +1,17 @@
 import React from 'react';
 import { Row, Col } from 'antd';
+import GameField from './GameField';
+import { connect } from 'react-redux';
+import { AppState } from '../../reducers/RootReducer';
+import { movePlayed } from '../actions/GameActions';
 
-const GameGrid: React.FC = () => {
+type GameGridProps = {
+    board: any[],
+    movePlayed: typeof movePlayed
+}
+
+export const GameGrid: React.FunctionComponent<GameGridProps> = props => {
+    const { board, movePlayed } = props;
     const size = [...Array(3)];
 
     const renderRow = (index: number) => {
@@ -20,12 +30,16 @@ const GameGrid: React.FC = () => {
         const cellKey = `r${rowIndex}c${columnIndex}`;
         return (
             <Col xs={8} key={cellKey}>
-                <div className="game-field" key={cellKey}>
-                    test
+                <div >
+                    <GameField key={cellKey} value={board[rowIndex][columnIndex]} onClick={() => fieldSelected(rowIndex, columnIndex)}
+                        rowIndex={rowIndex} columnIndex={columnIndex}/>
                 </div>
             </Col>
-
         );
+    }
+
+    const fieldSelected = (rowIndex: number, columnIndex: number) => {
+        movePlayed(rowIndex, columnIndex);
     }
 
     return (
@@ -39,4 +53,14 @@ const GameGrid: React.FC = () => {
     )
 }
 
-export default GameGrid;
+const mapStateToProps = (state: AppState) => {
+    return {
+        board: state.game.board
+    };
+};
+
+const dispatchProps = {
+    movePlayed
+};
+
+export default connect(mapStateToProps, dispatchProps)(GameGrid);
