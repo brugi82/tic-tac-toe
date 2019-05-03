@@ -2,7 +2,7 @@ import GameState from "./GameState";
 import { create2DArray } from "../util/create2DArray";
 import { GameActionTypes, MOVE_PLAYED, NEW_GAME } from './../components/actions/GameActionTypes';
 import uuidv4 from 'uuid';
-import { NONE, calculateGameResult } from '../util/calculateWinner';
+import { NONE, calculateGameResult } from './../util/calculateGameResult';
 
 const initialState: GameState = {
     id: uuidv4(),
@@ -18,7 +18,6 @@ const initialState: GameState = {
 }
 
 export default function gameReducer(state = initialState, action: GameActionTypes): GameState {
-    console.log('Reducer trigg');
     switch (action.type) {
         case MOVE_PLAYED:
             const newBoardState = state.board.map(row => row.slice());

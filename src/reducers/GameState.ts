@@ -1,4 +1,4 @@
-import { GameResult } from '../util/calculateWinner';
+import { GameResult } from './../util/calculateGameResult';
 
 export default interface GameState {
     id: string,

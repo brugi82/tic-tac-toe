@@ -11,11 +11,7 @@ export type GameResult = {
 }
 
 export function calculateGameResult(player: string, lastMoveRowIndex: number, lastMoveColumnIndex: number, moveCount: number, board: any[]): GameResult {
-    const result = {
-        score: NONE
-    };
     const dimension = 3;
-    const winningMove = player + player + player;
     let winningPosition = [];
     //Check row
     for (let columnIndex = 0; columnIndex < dimension; columnIndex++) {

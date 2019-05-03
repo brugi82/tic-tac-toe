@@ -4,7 +4,6 @@ import Player from '../player/Player';
 import GameGrid from './GameGrid';
 import { AppState } from '../../reducers/RootReducer';
 import { connect } from 'react-redux';
-import { X, O, TIE } from '../../util/calculateWinner';
 
 type GamePageProps = {
     x: string,
@@ -13,7 +12,7 @@ type GamePageProps = {
     gameResult: string
 }
 
-const GamePage: React.FunctionComponent<GamePageProps> = props => {
+export const GamePage: React.FunctionComponent<GamePageProps> = props => {
     const { x, o, currentTurn, gameResult } = props;
 
     return (

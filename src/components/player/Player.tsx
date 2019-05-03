@@ -1,7 +1,7 @@
 import React from 'react';
 import { Avatar } from 'antd';
 import { AppState } from '../../reducers/RootReducer';
-import { GameScore, TIE } from '../../util/calculateWinner';
+import { GameScore, TIE } from './../../util/calculateGameResult';
 import { connect } from 'react-redux';
 
 type PlayerOwnProps = {
@@ -14,7 +14,7 @@ type PlayerProps = {
     currentTurn: string
 }
 
-const Player: React.FunctionComponent<PlayerProps & PlayerOwnProps> = ({ name, symbol, currentTurn, gameScore }) => {
+export const Player: React.FunctionComponent<PlayerProps & PlayerOwnProps> = ({ name, symbol, currentTurn, gameScore }) => {
     const isActive = currentTurn === symbol;
     const isWinner = gameScore === symbol;
     const isTie = gameScore === TIE;

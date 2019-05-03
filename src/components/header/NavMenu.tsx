@@ -9,7 +9,7 @@ type navMenuProps = {
     newGame: typeof newGame
 }
 
-const NavMenu: React.FunctionComponent<navMenuProps> = ({newGame}) => {
+export const NavMenu: React.FunctionComponent<navMenuProps> = ({newGame}) => {
     const onNewGameClick = () => {
         newGame();
     }

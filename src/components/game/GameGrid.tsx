@@ -4,7 +4,6 @@ import GameField from './GameField';
 import { connect } from 'react-redux';
 import { AppState } from '../../reducers/RootReducer';
 import { movePlayed } from '../actions/GameActions';
-import { GameScore } from './../../util/calculateWinner';
 
 type GameGridProps = {
     board: any[],

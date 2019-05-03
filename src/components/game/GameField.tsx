@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'antd';
 import { AppState } from '../../reducers/RootReducer';
-import { GameScore, NONE } from '../../util/calculateWinner';
+import { GameScore, NONE } from './../../util/calculateGameResult';
 import { connect } from 'react-redux';
 
 type GameFieldOwnProps = {
@@ -17,7 +17,7 @@ type GameFieldProps = {
 
 }
 
-const GameField: React.FunctionComponent<GameFieldProps & GameFieldOwnProps> = ({ value, onClick, gameScore, rowIndex, columnIndex, winningFields }) => {
+export const GameField: React.FunctionComponent<GameFieldProps & GameFieldOwnProps> = ({ value, onClick, gameScore, rowIndex, columnIndex, winningFields }) => {
     const isWinningField = () => {
         let isWinningField = false;
         if (winningFields) {
