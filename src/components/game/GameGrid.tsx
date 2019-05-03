@@ -32,7 +32,8 @@ export const GameGrid: React.FunctionComponent<GameGridProps> = props => {
         return (
             <Col xs={8} key={cellKey}>
                 <div >
-                    <GameField key={cellKey} value={board[rowIndex][columnIndex]} onClick={() => fieldSelected(rowIndex, columnIndex)}/>
+                    <GameField key={cellKey} value={board[rowIndex][columnIndex]} onClick={() => fieldSelected(rowIndex, columnIndex)}
+                        rowIndex={rowIndex} columnIndex={columnIndex}/>
                 </div>
             </Col>
         );

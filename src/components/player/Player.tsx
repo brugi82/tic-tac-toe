@@ -14,8 +14,7 @@ type PlayerProps = {
     currentTurn: string
 }
 
-const Player: React.FunctionComponent<PlayerProps & PlayerOwnProps> = props => {
-    const {name, symbol, currentTurn, gameScore} = props;
+const Player: React.FunctionComponent<PlayerProps & PlayerOwnProps> = ({ name, symbol, currentTurn, gameScore }) => {
     const isActive = currentTurn === symbol;
     const isWinner = gameScore === symbol;
     const isTie = gameScore === TIE;
@@ -31,7 +30,7 @@ const Player: React.FunctionComponent<PlayerProps & PlayerOwnProps> = props => {
     return (
         <div className={`player-container ${className}`}>
             <div>
-                <Avatar size={64}>{ name ? name.charAt(0).toLocaleUpperCase() : 'Unknown' }</Avatar>
+                <Avatar size={64}>{symbol}</Avatar>
                 <h1>{name}</h1>
                 { isActive && <h1>Your move!</h1> }
                 { isWinner && <h1>Your are the winner!</h1> }

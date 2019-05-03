@@ -46,9 +46,9 @@
 
 .player-winner {
   border: 1px;
-  border-color: #d9f7be;
+  border-color: #73d13d;
   border-style: solid;
-  background: #f6ffed;
+  background: #d9f7be;
   border-radius: 4px;
 }
 
@@ -71,7 +71,7 @@
 
 .field-button-container {
   width: 100%;
-	padding-bottom: 100%; /* 16:9 */
+	padding-bottom: 100%; 
 	position: relative;
 }
 
@@ -83,6 +83,10 @@
 .field-button {
   width: 100%;
   height: 100%;
+}
+
+.ant-btn[disabled].field-winning-button {
+  background-color: #ffe58f;
 }
 
 .field-button > span {
