@@ -32,4 +32,13 @@ describe('NavMenu', () => {
         
         expect(component.find(Menu.Item)).toHaveLength(3);
     });
+
+    it('Click should trigger new game.', () => {
+        let clicked = false;
+        const component: ShallowWrapper = shallow( 
+            <NavMenu newGame={() => clicked = true as any}/>
+          );
+        component.find(Menu.Item).at(2).simulate('click');
+        expect(clicked).toBeTruthy();
+    });
 });
