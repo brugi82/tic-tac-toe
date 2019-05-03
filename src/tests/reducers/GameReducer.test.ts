@@ -25,4 +25,17 @@ describe('GameReducer', () => {
         expect(newGameState.board[2].length).toBe(3);
         expect(newGameState.board[0][0]).toBeTruthy();
     });
+
+    it('Should return unmodified state when action not recognized.', () => {
+        const newGameState = gameReducer(undefined, {
+            type: 'invalid'
+        } as any);
+
+        expect(newGameState.moveCount).toBe(0);
+        expect(newGameState.gameResult.score).toBe('NONE');
+        expect(newGameState.board.length).toBe(3);
+        expect(newGameState.board[0].length).toBe(3);
+        expect(newGameState.board[1].length).toBe(3);
+        expect(newGameState.board[2].length).toBe(3);
+    });
 });
