@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import { Layout } from 'antd';
 import GamePage from './components/game/GamePage';
 import HistoryPage from './components/history/HistoryPage';
@@ -27,4 +27,4 @@ const App: React.FC = () => {
   );
 }
 
-export default App;
+export default withRouter(App);

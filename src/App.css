@@ -30,7 +30,7 @@
 
 .player-active {
   border: 1px;
-  border-color: #91d5ff;
+  border-color: #d9d9d9;
   border-style: solid;
   background: #bae7ff;
   border-radius: 4px;
@@ -46,7 +46,7 @@
 
 .player-winner {
   border: 1px;
-  border-color: #ffd666;
+  border-color: #d9d9d9;
   border-style: solid;
   background: #ffe58f;
   border-radius: 4px;
@@ -54,7 +54,7 @@
 
 .player-tie {
   border: 1px;
-  border-color: #ffd666;
+  border-color: #d9d9d9;
   border-style: solid;
   background: #ffe58f;
   border-radius: 4px;

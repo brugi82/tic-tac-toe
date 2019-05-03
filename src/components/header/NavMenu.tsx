@@ -1,8 +1,19 @@
 import React from 'react';
 import { Menu, Icon } from 'antd';
 import { Link, withRouter } from 'react-router-dom';
+import { newGame } from '../actions/GameActions';
+import { connect } from 'react-redux';
+import { AppState } from '../../reducers/RootReducer';
 
-const NavMenu: React.FunctionComponent<{}> = () => {
+type navMenuProps = {
+    newGame: typeof newGame
+}
+
+const NavMenu: React.FunctionComponent<navMenuProps> = ({newGame}) => {
+    const onNewGameClick = () => {
+        newGame();
+    }
+
     return (
         <div>
             <Menu
@@ -22,9 +33,21 @@ const NavMenu: React.FunctionComponent<{}> = () => {
                         <span className="x-768">History</span>
                     </Link>
                 </Menu.Item>
+                <Menu.Item key="/new" onClick={() => onNewGameClick()}>
+                    <Icon type='trophy' className="mobile-icon"/>
+                    <span className="x-768">New Game</span>
+                </Menu.Item>
             </Menu>
         </div>
     )
 }
 
-export default withRouter(NavMenu);
+const mapStateToProps = (state: AppState) => ({
+    
+});
+
+const dispatchProps = {
+    newGame
+}
+
+export default withRouter(connect(mapStateToProps, dispatchProps)(NavMenu) as any);

@@ -1,4 +1,5 @@
 export const MOVE_PLAYED = 'MOVE_PLAYED';
+export const NEW_GAME = 'NEW_GAME';
 
 interface MovePlayedAction {
     type: typeof MOVE_PLAYED
@@ -6,4 +7,8 @@ interface MovePlayedAction {
     columnIndex: number
 }
 
-export type GameActionTypes = MovePlayedAction;
+interface NewGameAction {
+    type: typeof NEW_GAME
+}
+
+export type GameActionTypes = MovePlayedAction | NewGameAction;

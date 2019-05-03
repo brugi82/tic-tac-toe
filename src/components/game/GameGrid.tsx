@@ -55,7 +55,6 @@ export const GameGrid: React.FunctionComponent<GameGridProps> = props => {
 }
 
 const mapStateToProps = (state: AppState) => {
-    console.log(state);
     return {
         board: state.game.board
     };

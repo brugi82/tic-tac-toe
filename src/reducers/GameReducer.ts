@@ -1,13 +1,13 @@
 import GameState from "./GameState";
 import { create2DArray } from "../util/create2DArray";
-import { GameActionTypes, MOVE_PLAYED } from './../components/actions/GameActionTypes';
+import { GameActionTypes, MOVE_PLAYED, NEW_GAME } from './../components/actions/GameActionTypes';
 import uuidv4 from 'uuid';
 import { NONE, calculateGameResult } from '../util/calculateWinner';
 
 const initialState: GameState = {
     id: uuidv4(),
-    x: 'Milos',
-    o: 'Joksa',
+    x: 'Player 1',
+    o: 'Player 2',
     moveCount: 0,
     currentTurn: Math.floor(Math.random() * 2) === 1 ? 'X' : 'O',
     board: create2DArray(3),
@@ -37,6 +37,18 @@ export default function gameReducer(state = initialState, action: GameActionType
                     ...state.gameResult,
                     score: gameResult.score,
                     position: gameResult.position
+                }
+            }
+        case NEW_GAME:
+            return {
+                ...state,
+                moveCount: 0,
+                id: uuidv4(),
+                currentTurn: Math.floor(Math.random() * 2) === 1 ? 'X' : 'O',
+                board: create2DArray(3),
+                gameResult: {
+                    score: NONE,
+                    position: []
                 }
             }
         default:
