@@ -54,7 +54,8 @@ export default function gameReducer(state = initialState, action: GameActionType
                 gameResult: {
                     score: NONE,
                     position: []
-                }
+                },
+                moveHistory: []
             }
         default:
             return state;
