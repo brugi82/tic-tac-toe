@@ -93,6 +93,13 @@
   font-size: 48px;
 }
 
+.move-active {
+  background: #ffe58f;
+  border-width: 1px;
+  border-color: #d9d9d9;
+  border-radius: 4px;
+}
+
 @media only screen and (max-width: 576px) {
   .layout {
     height: auto;

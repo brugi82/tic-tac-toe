@@ -2,6 +2,7 @@ import React from 'react';
 import { Timeline } from 'antd';
 import { AppState } from '../../reducers/RootReducer';
 import { connect } from 'react-redux';
+import Move from './Move';
 
 type PlayerMove = {
     player: string,
@@ -9,16 +10,19 @@ type PlayerMove = {
 }
 
 type MoveHistoryProps = {
-    moves: PlayerMove[]
+    moves: PlayerMove[],
+    selectTurn: (turn: number) => void
 }
 
-const MoveHistory: React.FunctionComponent<MoveHistoryProps> = ({moves}) => {
+export const MoveHistory: React.FunctionComponent<MoveHistoryProps> = ({moves, selectTurn}) => {
     return (
         <div>
+            <h2>Moves:</h2>
             <Timeline>
                 {
                     moves.map(elem => {
-                        return <Timeline.Item>{elem.moveIndex + 1}. {elem.player}</Timeline.Item>
+                        // return <Timeline.Item><a onMouseOver={() => selectTurn(elem.moveIndex)}>{elem.moveIndex + 1}. {elem.player}</a></Timeline.Item>
+                        return <Move moveIndex={elem.moveIndex} player={elem.player} selectTurn={() => selectTurn(elem.moveIndex)}/>
                     })
                 }
             </Timeline>

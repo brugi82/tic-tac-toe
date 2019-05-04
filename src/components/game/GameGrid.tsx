@@ -4,14 +4,23 @@ import GameField from './GameField';
 import { connect } from 'react-redux';
 import { AppState } from '../../reducers/RootReducer';
 import { movePlayed } from '../actions/GameActions';
+import { GameScore } from '../../util/calculateGameResult';
 
 type GameGridProps = {
-    board: any[],
+    gameScore: GameScore,
+ }
+
+type GameGridOwnProps = {
+    isReadOnly: boolean,
+    board: any[]
+}
+
+type GameGridDispatchProps = {
     movePlayed: typeof movePlayed
 }
 
-export const GameGrid: React.FunctionComponent<GameGridProps> = props => {
-    const { board, movePlayed } = props;
+export const GameGrid: React.FunctionComponent<GameGridProps & GameGridOwnProps & GameGridDispatchProps> = props => {
+    const { gameScore, movePlayed, isReadOnly, board } = props;
     const size = [...Array(3)];
 
     const renderRow = (index: number) => {
@@ -32,7 +41,7 @@ export const GameGrid: React.FunctionComponent<GameGridProps> = props => {
             <Col xs={8} key={cellKey}>
                 <div >
                     <GameField key={cellKey} value={board[rowIndex][columnIndex]} onClick={() => fieldSelected(rowIndex, columnIndex)}
-                        rowIndex={rowIndex} columnIndex={columnIndex}/>
+                        rowIndex={rowIndex} columnIndex={columnIndex} isReadOnly={isReadOnly || (gameScore !== 'NONE')}/>
                 </div>
             </Col>
         );
@@ -53,11 +62,9 @@ export const GameGrid: React.FunctionComponent<GameGridProps> = props => {
     )
 }
 
-const mapStateToProps = (state: AppState) => {
-    return {
-        board: state.game.board
-    };
-};
+const mapStateToProps = (state: AppState) => ({
+        gameScore: state.game.gameResult.score,
+});
 
 const dispatchProps = {
     movePlayed
