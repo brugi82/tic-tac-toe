@@ -19,13 +19,13 @@ describe('GameGrid', () => {
 
     it('Renders without crashing', () => {
         const component: ShallowWrapper = shallow( 
-            <GameGrid board={board} movePlayed={(r, c) => movePlayed(r, c)}/>
+            <GameGrid board={board} gameScore='NONE' isReadOnly={false} movePlayed={(r, c) => movePlayed(r, c)}/>
         );
       });
 
     it('Should have 3 rows.', () => {
         const component: ShallowWrapper = shallow( 
-            <GameGrid board={board} movePlayed={(r, c) => movePlayed(r, c)}/>
+            <GameGrid board={board} gameScore='NONE' isReadOnly={false} movePlayed={(r, c) => movePlayed(r, c)}/>
         );
 
         expect(component.find(Row)).toHaveLength(3);
@@ -33,7 +33,7 @@ describe('GameGrid', () => {
 
     it('Should have 9 columns.', () => {
         const component: ShallowWrapper = shallow( 
-            <GameGrid board={board} movePlayed={(r, c) => movePlayed(r, c)}/>
+            <GameGrid board={board} gameScore='NONE' isReadOnly={false} movePlayed={(r, c) => movePlayed(r, c)}/>
         );
 
         expect(component.find(Col)).toHaveLength(9);
@@ -41,7 +41,7 @@ describe('GameGrid', () => {
 
     it('Should have div with game-grid-container class.', () => {
         const component: ShallowWrapper = shallow( 
-            <GameGrid board={board} movePlayed={(r, c) => movePlayed(r, c)}/>
+            <GameGrid board={board} gameScore='NONE' isReadOnly={false} movePlayed={(r, c) => movePlayed(r, c)}/>
         );
 
         expect(component.find('div.game-grid-container')).toHaveLength(1);

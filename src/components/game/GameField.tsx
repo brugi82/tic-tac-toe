@@ -8,16 +8,15 @@ type GameFieldOwnProps = {
     value: string,
     rowIndex: number,
     columnIndex: number,
+    isReadOnly: boolean,
     onClick: () => void   
 }
 
 type GameFieldProps = {
-    gameScore: GameScore,
     winningFields: any[],
-
 }
 
-export const GameField: React.FunctionComponent<GameFieldProps & GameFieldOwnProps> = ({ value, onClick, gameScore, rowIndex, columnIndex, winningFields }) => {
+export const GameField: React.FunctionComponent<GameFieldProps & GameFieldOwnProps> = ({ value, onClick, isReadOnly, rowIndex, columnIndex, winningFields }) => {
     const isWinningField = () => {
         let isWinningField = false;
         if (winningFields) {
@@ -34,14 +33,13 @@ export const GameField: React.FunctionComponent<GameFieldProps & GameFieldOwnPro
     return (
         <div className="field-button-container">
             <div>
-                <Button className={`field-button ${isWinningField() && 'field-winning-button'}`} onClick={() => onClick()} disabled={!!value || (gameScore !== NONE)}>{value}</Button>
+                <Button className={`field-button ${isWinningField() && 'field-winning-button'}`} onClick={() => onClick()} disabled={!!value || isReadOnly}>{value}</Button>
             </div>
         </div>
     )
 }
 
 const mapStateToProps = (appState: AppState) => ({
-    gameScore: appState.game.gameResult.score,
     winningFields: appState.game.gameResult.position
 });
 

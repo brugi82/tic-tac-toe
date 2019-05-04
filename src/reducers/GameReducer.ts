@@ -1,5 +1,5 @@
 import GameState from "./GameState";
-import { create2DArray } from "../util/create2DArray";
+import { create2DArray, clone2DArray } from "../util/create2DArray";
 import { GameActionTypes, MOVE_PLAYED, NEW_GAME } from './../components/actions/GameActionTypes';
 import uuidv4 from 'uuid';
 import { NONE, calculateGameResult } from './../util/calculateGameResult';
@@ -14,13 +14,14 @@ const initialState: GameState = {
     gameResult: {
         score: NONE,
         position: []
-    }
+    },
+    moveHistory: []
 }
 
 export default function gameReducer(state = initialState, action: GameActionTypes): GameState {
     switch (action.type) {
         case MOVE_PLAYED:
-            const newBoardState = state.board.map(row => row.slice());
+            const newBoardState = clone2DArray(state.board);
             newBoardState[action.rowIndex][action.columnIndex] = state.currentTurn;
             const gameResult = calculateGameResult(state.currentTurn, action.rowIndex, action.columnIndex, state.moveCount, newBoardState);
             let currentTurn = '';
@@ -36,7 +37,12 @@ export default function gameReducer(state = initialState, action: GameActionType
                     ...state.gameResult,
                     score: gameResult.score,
                     position: gameResult.position
-                }
+                },
+                moveHistory: [...state.moveHistory, {
+                    moveIndex: state.moveCount,
+                    player: state.currentTurn,
+                    board: clone2DArray(newBoardState)
+                }]
             }
         case NEW_GAME:
             return {
